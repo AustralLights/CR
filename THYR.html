@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<html>
+<head>
+  <title>Thryoïde</title>
+</head>
+<body>
+  <!-- VOLUME GLANDULAIRE !-->
+		<table style="border:1px solid black">
+			<thead>
+       	<tr>
+          <th colspan="4" align="center" style="border:1px solid grey; background-color:#cccccc"><b><font face="Helvetica">Volume glandulaire</font></b></th>
+       	</tr>
+   		</thead>
+   			 <tr>
+   			 	<td colspan="4" align="center"><br><font face="Helvetica">Isthme (mm)</font><br>
+   			 	<input type="text" id="c" value="" tabindex="1" style="width:10%"/></td>
+   			 <tr>
+   			 	<td colspan="2" align="center"><font face="Helvetica">Lobe droit</font></td><td colspan="2" align="center"><font face="Helvetica">Lobe gauche</font></td>
+   			 </tr>
+			<tr>
+				<td><i>Dimension 1 (mm)</i></td>
+ 				<td><input type="text" id="ax1" value="" tabindex="2" style="width:30%"/></td>
+ 				<td><i>Dimension 1 (mm)</i></td>
+ 				<td><input type="text" id="bx1" value="" tabindex="5" style="width:30%"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td><i>Dimension 2 (mm)</i></td>
+ 				<td><input type="text" id="ax2" value="" tabindex="3" style="width:30%"/></td>
+ 				<td><i>Dimension 2 (mm)</i></td>
+ 				<td><input type="text" id="bx2" value="" tabindex="6" style="width:30%"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td><i>Dimension 3 (mm)</i></td>
+ 				<td><input type="text" id="ax3" value="" tabindex="4" style="width:30%"/></td>
+ 				<td><i>Dimension 3 (mm)</i></td>
+ 				<td><input type="text" id="bx3" value="" tabindex="7" style="width:30%"/></td>
+ 			</tr>
+      <tr>
+        <td colspan="2" style="text-align:center"><br>Homme <input type="radio" name="sexe" id="homme" checked /></td>
+        <td colspan="2" style="text-align:center"><br>Femme <input type="radio" name="sexe" id="femme" /></td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:center; vertical-align:center"><br>
+        Absence de signe de thyroïdite<input type="radio" name="thyroidite" id="thyroidite0" value="" checked/><br>
+        Présence de signe de thyroïdite<input type="radio" name="thyroidite" id="thyroidite1" value=""/><br>
+        </td>
+      </tr>
+ 			<tr>
+ 				<td colspan="4" align="center">
+ 					<br><input type="button" value="Générer le compte rendu" style="width:100%; background-color:#dddddd" onclick="vol();"/>
+ 				</td>
+ 			</tr>
+ 		</table>
+<p id="par_mens"><font face="Book Antiqua"> </font></p>
+<p id="par_gen"><font face="Book Antiqua"> </font></p>
+<br>
+<br>
+<!-- NODULE !-->
+<table style="border:1px solid black">
+  <thead>
+    <tr>
+      <th colspan="6" style="border:1px solid grey; text-align:center; background-color:#cccccc"><font face="Helvetica"><b>Nodule</b></font></th>
+    </tr>
+  </thead>
+  <tr colspan="6" aligne="center">
+    <td style="vertical-align:center; height:60px; text-align:center"><font face="Helvetica">Localisation</font><br></td>
+    <td style="vertical-align:center; height:60px; text-align:center"><font face="Helvetica">Mensurations</font><br></td>
+    <td style="vertical-align:center; height:60px; text-align:center"><font face="Helvetica">Forme et contours</font><br></td>
+    <td style="vertical-align:center; height:60px; text-align:center"><font face="Helvetica">Echostructure</font><br></td>
+    <td style="vertical-align:center; height:60px; text-align:center"><font face="Helvetica">Autres </font><br></td>
+    <td style="vertical-align:center; height:60px; text-align:center"><font face="Helvetica">Vascularisation</font><br></td>
+  </tr>
+  <tr>
+    <!-- Localisation !-->
+    <td style="vertical-align:top; text-align:right; padding-right:15px">
+      Lobe droit <input type="radio" name="nod_loc_lobe" id="nod_loc_lobe_d" checked/><br>
+      Lobe gauche <input type="radio" name="nod_loc_lobe" id="nod_loc_lobe_g"/><br><br>
+      Pôle supérieur <input type="radio" name="nod_loc_haut" id="nod_loc_p_s" value="du pôle supérieur" checked/><br>
+      Tiers supérieur <input type="radio" name="nod_loc_haut" id="nod_loc_t_s" value="du tiers supérieur"/><br>
+      Tiers moyen <input type="radio" name="nod_loc_haut" id="nod_loc_t_m" value="du tiers moyen"/><br>
+      Tiers inférieur <input type="radio" name="nod_loc_haut" id="nod_loc_t_i" value="du tiers inférieur"/><br>
+      Pôle inférieur <input type="radio" name="nod_loc_haut" id="nod_loc_p_i" value="du pôle inférieur"/><br><br>
+      Externe <input type="radio" name="nod_loc_quadr" id="nod_loc_quadr_ext" value="(partie externe)"checked/><br>
+      Antérieur <input type="radio" name="nod_loc_quadr" id="nod_loc_quadr_ant" value="(partie antérieure)"/><br>
+      Interne <input type="radio" name="nod_loc_quadr" id="nod_loc_quadr_int" value="(partie interne)"/><br>
+      Para-isthmique <input type="radio" name="nod_loc_quadr" id="nod_loc_quadr_par" value="(para-isthmique)"/><br>
+      Postérieur <input type="radio" name="nod_loc_quadr" id="nod_loc_quadr_post" value="(partie postérieure)"/><br>
+      Non précisé <input type="radio" name="nod_loc_quadr" id="nod_loc_quadr_non" value=""/><br>
+    </td>
+    <!-- Mensurations !-->
+    <td style="vertical-align:top; text-align:center; padding-left:15px; padding-right:15px">
+      <input type="text" id="nx" value="" style="width:20%"/> mm<br>
+      <input type="text" id="ny" value="" style="width:20%"/> mm<br>
+      <input type="text" id="nz" value="" style="width:20%"/> mm<br>
+    </td>
+    <!-- Contours !-->
+    <td style="vertical-align:top; text-align:right; padding-left:15px; padding-right:15px">
+      Ovoïde à cont. nets <input type="radio" name="nod_cont" id="nod_cont_nets" value=", ovoïde à contours nets " checked/><br>
+      Flous <input type="radio" name="nod_cont"id="nod_cont_flous" value=", à contours flous "/><br>
+      Irréguliers <input type="radio" name="nod_cont"id="nod_cont_irr" value=", aux contours irréguliers "/><br><br>
+      + large qu'épais <input type="radio" name="nod_form"id="nod_cont_larg" value="" checked/><br>
+      + épais que large<input type="radio" name="nod_form"id="nod_cont_ep" value=""/><br>
+    </td>
+    <!-- Echostructure !-->
+    <td style="vertical-align:top; text-align:right; padding-left:15px; padding-right:15px"> 
+      <i>Echostructure globale</i><br>
+      Kystique <input type="radio" name="nod_echos" id="nod_echos_kys" value="kystique"/><br>
+      Mixte <input type="radio" name="nod_echos" id="nod_echos_mix" value="d'échostructure mixte avec composante solide"/><br>
+      Tissulaire <input type="radio" name="nod_echos" id="nod_echos_tis" value="tissulaire"/><br>
+      Spongiforme <input type="radio" name="nod_echos" id="nod_echos_sp" value="spongiforme"/><br><br>
+      <i>Composante tissulaire</i><br>
+      Isoéchogène <input type="radio" name="nod_echos_tis" id="nod_echos_tis_i" value="isoéchogène"/><br>
+      Modérément hypo- <input type="radio" name="nod_echos_tis"id="nod_echos_tis_mh" value="modérément hypoéchogène"/><br>
+      Fortement hypo- <input type="radio" name="nod_echos_tis"id="nod_echos_tis_fh" value="fortement hypoéchogène"/><br>
+      Pas de comp. tiss. <input type="radio" name="nod_echos_tis"id="nod_echos_tis_no" value=""/><br><br>
+      Micro-kystisation<input type="checkbox" id="nod_echos_tis_mk" value=""/><br>    
+    </td> 
+    <!-- Autres caractéristiques!--> 
+    <td style="vertical-align:top; text-align:right; padding-left:15px; padding-right:15px">
+      Macro-calc.<input type="checkbox" id="nod_autres_macro" value=""/><br>
+      Micro-calc.<input type="checkbox" id="nod_autres_micro" value=""/><br>
+      Gran. colloïdes<input type="checkbox" id="nod_autres_coll" value=""/><br>
+    </td>
+    <!-- Vascularisation !--> 
+    <td style="vertical-align:top; text-align:right; padding-left:15px; padding-right:15px">
+    Avasculaire <input type="radio" name="nod_vasc" id="nod_vasc_av" value="avasculaire"/><br> 
+    Périphérique <input type="radio" name="nod_vasc" id="nod_vasc_p" value="à vascularisation de type périphérique"/><br>
+    Mixte <input type="radio" name="nod_vasc" id="nod_vasc_m" value="à vascularisation de type mixte"/><br>
+    </td>
+    <!-- Command Button !-->
+    <tr><td colspan="6"><input type="button" value="Générer le compte rendu" style="width:100%; background-color:#dddddd" onclick="nod();"/></td></tr>
+</table>
+<p id="par_nodule"><font face="Book Antiqua"> </font></p>
+<!-- 
+FIN CODE HTML
+DEBUT CODAGE JS
+!-->
+<script type="text/javascript">
+// ___________________________________ FONCTION CALCUL VOLUME ______________________________
+function vol()	{
+// VARIABLES VOLUME
+    var isthm = document.getElementById("c").value;
+    var ax1 = document.getElementById("ax1").value;
+     var ax2 = document.getElementById("ax2").value;
+      var ax3 = document.getElementById("ax3").value;
+        var vold = Math.round(ax1 * ax2 * ax3 * 0.52 * 0.01)/10;
+    var bx1 = document.getElementById("bx1").value;
+     var bx2 = document.getElementById("bx2").value;
+      var bx3 = document.getElementById("bx3").value;
+        var volg = Math.round(bx1 * bx2 * bx3 * 0.52 * 0.01)/10;  
+    var volt = Math.round((vold + volg)*10)/10;
+// DETERMINATION VALEUR NORMALE
+     var norm = 0
+      if (document.getElementById("homme").checked) {
+          var norm = 20 } 
+      else {
+          var norm = 18 }
+// PHRASE 1 - VOLUME GLANDULAIRE
+      if (volt > norm) {
+        var phrase1 = "La thyroïde est de volume augmenté : calculé à " + volt + " cc (pour une normale < à " + norm + " cc)." }
+      else {
+        var phrase1 = "Le volume thyroïdien est calculé à : " + volt + " cc (pour une normale < à " + norm + " cc).";}
+// PHRASE 2 ET 3 - DIMENSIONS
+var phrase2 = " L'isthme est mesuré à " + isthm +" mm d'épaisseur."
+var phrase3 = " Le lobe droit est estimé à " + vold + " cc (" + ax1 + " x " + ax2 + " x " + ax3 +"  mm)."
+var phrase4 = " Le lobe gauche est estimé à " + volg + " cc (" + bx1 + " x " + bx2 + " x " + bx3 +"  mm)."
+    document.getElementById("par_mens").innerHTML = phrase1 + phrase2 + phrase3 + phrase4;
+// PHRASES GENERALES
+      if (document.getElementById("thyroidite0").checked) {
+          var p_thyroidite = "Pas de signe de thyroïdite. En particulier, on note une échogénicité satisfaisante du parenchyme thyroïdien et une vascularisation normale en Doppler énergie."} 
+      else {
+          var p_thyroidite = "THYROIDITE" }
+    document.getElementById("par_gen").innerHTML = p_thyroidite;
+  }
+// ___________________________________ FONCTION NODULE _____________________________________
+function nod()
+{
+// VARIABLES LOCALISATION
+  if (document.getElementById("nod_loc_lobe_d").checked) {
+    var p_loc_lobe = "du lobe droit"}
+  else {
+    var p_loc_lobe = "du lobe gauche"};
+ var nodlochaut = document.getElementsByName("nod_loc_haut");
+  for (var i = 0, length = nodlochaut.length; i < length; i++) {
+    if (nodlochaut[i].checked) {
+      p_loc_haut = nodlochaut[i].value;}
+    }
+ var nodlocquadr = document.getElementsByName("nod_loc_quadr");
+  for (var j = 0, length2 = nodlocquadr.length; j < length2; j++) {
+    if (nodlocquadr[j].checked) {
+      p_loc_quadr = nodlocquadr[j].value;}
+    }
+ var phrase_nod1 = "Nodule " + p_loc_haut + " " + p_loc_quadr + " " + p_loc_lobe;
+// VARIABLES MENSURATIONS
+  var nx = document.getElementById("nx").value;
+  var ny = document.getElementById("ny").value;
+  var nz = document.getElementById("nz").value;
+    var phrase_nod2 = " mesurant " + nx + " x " + ny + " x " + nz + " mm"
+// VARIABLES FORMES ET CONTOURS
+  if (document.getElementById("nod_cont_larg").checked) {
+    var p_cont = " (plus large qu'épais)"}
+  else {
+    var p_cont = " (plus épais que large)"};
+ var nodcont = document.getElementsByName("nod_cont");
+  for (var k = 0, length3 = nodcont.length; k < length3; k++) {
+    if (nodcont[k].checked) {
+      p_cont2 = nodcont[k].value;}
+    }
+  var phrase_nod3 = p_cont + p_cont2;
+// VARIABLES ECHOSTRUCTURE
+ var nodechos = document.getElementsByName("nod_echos");
+  for (var l = 0, length4 = nodechos.length; l < length4; l++) {
+    if (nodechos[l].checked) {
+      p_echos = nodechos[l].value;}
+    }
+ var nodechostis = document.getElementsByName("nod_echos_tis");
+  for (var m = 0, length5 = nodechostis.length; m < length5; m++) {
+    if (nodechostis[m].checked) {
+      p_echos2 = nodechostis[m].value;}
+    }
+  if (document.getElementById("nod_echos_tis_mk").checked) {
+    var p_echos3 = "et plages de micro-kystisation"}
+  else {
+    var p_echos3 = ""};
+  var phrase_nod4 = " apparaissant " + p_echos + " " + p_echos2 + " " + p_echos3 +".";
+// VARIABLES VASC ET AUTRES
+   var nodvasc = document.getElementsByName("nod_vasc");
+  for (var n = 0, length6 = nodvasc.length; n < length6; n++) {
+    if (nodvasc[n].checked) {
+      p_vasc = nodvasc[n].value;}
+    }
+  if (document.getElementById("nod_autres_macro").checked) {
+    var macroK = " et porteur d'une macro-calcification"}
+  else {
+    var macroK = ""};
+  if (document.getElementById("nod_autres_micro").checked) {
+    var microK = " et porteur de micro-calcifications"}
+  else {
+    var microK = ""};
+  if (document.getElementById("nod_autres_coll").checked) {
+    var gcoll = " et porteur de granulations colloïdes"}
+  else {
+    var gcoll = ""};
+ var phrase_nod5 = "Le nodule apparaît en outre " + p_vasc + " en Doppler énergie" + macroK + microK + gcoll +"."
+// ASSEMBLAGE
+document.getElementById("par_nodule").innerHTML = phrase_nod1 + phrase_nod2 + phrase_nod3 + phrase_nod4 + phrase_nod5;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<html>
+<head>
+  <title>Bilan radiographique</title>
+</head>
+<body>
+
+    <table style="border:1px solid black">
+      <thead>
+        <tr>
+          <th colspan="4" align="center" style="border:1px solid grey; background-color:#cccccc"><b><font face="Helvetica">Volume glandulaire</font></b></th>
+        </tr>
+      </thead>
+         <tr>
+          <td colspan="4" align="center"><br><font face="Helvetica">Isthme (mm)</font><br>
+          <input type="text" id="c" value="" tabindex="1" style="width:10%"/></td>
+         <tr>
+          <td colspan="2" align="center"><font face="Helvetica">Lobe droit</font></td><td colspan="2" align="center"><font face="Helvetica">Lobe gauche</font></td>
+         </tr>
+      <tr>
+        <td><i>Dimension 1 (mm)</i></td>
+        <td><input type="text" id="ax1" value="" tabindex="2" style="width:30%"/></td>
+        <td><i>Dimension 1 (mm)</i></td>
+        <td><input type="text" id="bx1" value="" tabindex="5" style="width:30%"/></td>
+      </tr>
+      <tr>
+        <td><i>Dimension 2 (mm)</i></td>
+        <td><input type="text" id="ax2" value="" tabindex="3" style="width:30%"/></td>
+        <td><i>Dimension 2 (mm)</i></td>
+        <td><input type="text" id="bx2" value="" tabindex="6" style="width:30%"/></td>
+      </tr>
+      <tr>
+        <td><i>Dimension 3 (mm)</i></td>
+        <td><input type="text" id="ax3" value="" tabindex="4" style="width:30%"/></td>
+        <td><i>Dimension 3 (mm)</i></td>
+        <td><input type="text" id="bx3" value="" tabindex="7" style="width:30%"/></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align:center"><br>Homme <input type="radio" name="sexe" id="homme" checked /></td>
+        <td colspan="2" style="text-align:center"><br>Femme <input type="radio" name="sexe" id="femme" /></td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:center; vertical-align:center"><br>
+        Absence de signe de thyroïdite<input type="radio" name="thyroidite" id="thyroidite0" value="" checked/><br>
+        Présence de signe de thyroïdite<input type="radio" name="thyroidite" id="thyroidite1" value=""/><br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" align="center">
+          <br><input type="button" value="Générer le compte rendu" style="width:100%; background-color:#dddddd" onclick="vol();"/>
+        </td>
+      </tr>
+    </table>
+
+
+<script type="text/javascript">
+function vol()  {
+}
+</script>
+
+</body>
+</html>
