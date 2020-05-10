@@ -1,57 +1,91 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 <html>
+
 <head>
   <title>Bilan radiographique</title>
+  <style type="text/css">
+    .ret {
+      margin-left:15px;
+      color:#1A3FB2; 
+      font-style: italic;
+      font-size:14px; }
+  </style>
 </head>
+
 <body>
 
     <table style="border:1px solid black">
       <thead>
         <tr>
-          <th colspan="4" align="center" style="border:1px solid grey; background-color:#cccccc"><b><font face="Helvetica">Volume glandulaire</font></b></th>
+          <th colspan="2" align="center" style="border:1px solid grey; background-color:#cccccc"><b><font face="Helvetica">Echographie</font></b></th>
+          <th colspan="1" align="center" style="border:1px solid grey; background-color:#cccccc"><b><font face="Helvetica">Radiographie</font></b></th>
         </tr>
       </thead>
-         <tr>
-          <td colspan="4" align="center"><br><font face="Helvetica">Isthme (mm)</font><br>
-          <input type="text" id="c" value="" tabindex="1" style="width:10%"/></td>
-         <tr>
-          <td colspan="2" align="center"><font face="Helvetica">Lobe droit</font></td><td colspan="2" align="center"><font face="Helvetica">Lobe gauche</font></td>
-         </tr>
       <tr>
-        <td><i>Dimension 1 (mm)</i></td>
-        <td><input type="text" id="ax1" value="" tabindex="2" style="width:30%"/></td>
-        <td><i>Dimension 1 (mm)</i></td>
-        <td><input type="text" id="bx1" value="" tabindex="5" style="width:30%"/></td>
-      </tr>
-      <tr>
-        <td><i>Dimension 2 (mm)</i></td>
-        <td><input type="text" id="ax2" value="" tabindex="3" style="width:30%"/></td>
-        <td><i>Dimension 2 (mm)</i></td>
-        <td><input type="text" id="bx2" value="" tabindex="6" style="width:30%"/></td>
-      </tr>
-      <tr>
-        <td><i>Dimension 3 (mm)</i></td>
-        <td><input type="text" id="ax3" value="" tabindex="4" style="width:30%"/></td>
-        <td><i>Dimension 3 (mm)</i></td>
-        <td><input type="text" id="bx3" value="" tabindex="7" style="width:30%"/></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="text-align:center"><br>Homme <input type="radio" name="sexe" id="homme" checked /></td>
-        <td colspan="2" style="text-align:center"><br>Femme <input type="radio" name="sexe" id="femme" /></td>
-      </tr>
-      <tr>
-        <td colspan="4" style="text-align:center; vertical-align:center"><br>
-        Absence de signe de thyroïdite<input type="radio" name="thyroidite" id="thyroidite0" value="" checked/><br>
-        Présence de signe de thyroïdite<input type="radio" name="thyroidite" id="thyroidite1" value=""/><br>
+        <td align="center" style="border:1px solid grey; background-color:#eeeeee">Membre supérieur</td>
+        <td align="center" style="border:1px solid grey; background-color:#eeeeee">Membre inférieur</td>
+      <tr>  
+        <td style="vertical-align: top">
+            </br>Epaule</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_epaule" id="echo_epaule_g"/><br>
+                Droite <input type="radio" name="echo_epaule" id="echo_epaule_d"/><br>
+                x 2 <input type="radio" name="echo_epaule" id="echo_epaule_2"/><br>
+              </p>
+            Coude</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_coude" id="echo_coude_g"/><br>
+                Droite <input type="radio" name="echo_coude" id="echo_coude_d"/><br>
+                x 2 <input type="radio" name="echo_coude" id="echo_coude_2"/><br>
+              </p>
+            Poignet</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_poignet" id="echo_poignet_g"/><br>
+                Droite <input type="radio" name="echo_poignet" id="echo_poignet_d"/><br>
+                x 2 <input type="radio" name="echo_poignet" id="echo_poignet_2"/><br>
+              </p>
+            Main</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_main" id="echo_main_g"/><br>
+                Droite <input type="radio" name="echo_main" id="echo_main_d"/><br>
+                x 2 <input type="radio" name="echo_main" id="echo_main_2"/><br>
+              </p>
         </td>
-      </tr>
-      <tr>
-        <td colspan="4" align="center">
-          <br><input type="button" value="Générer le compte rendu" style="width:100%; background-color:#dddddd" onclick="vol();"/>
+        <td>
+            </br>Hanche</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_hanche" id="echo_hanche_g"/><br>
+                Droite <input type="radio" name="echo_hanche" id="echo_hanche_d"/><br>
+                x 2 <input type="radio" name="echo_hanche" id="echo_hanche_2"/><br>
+              </p>
+            Genou</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_genou" id="echo_genou_g"/><br>
+                Droite <input type="radio" name="echo_genou" id="echo_genou_d"/><br>
+                x 2 <input type="radio" name="echo_genou" id="echo_genou_2"/><br>
+              </p>
+            Cheville</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_cheville" id="echo_cheville_g"/><br>
+                Droite <input type="radio" name="echo_cheville" id="echo_cheville_d"/><br>
+                x 2 <input type="radio" name="echo_cheville" id="echo_cheville_2"/><br>
+              </p>
+            Tendon d'Achille</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_achille" id="echo_achille_g"/><br>
+                Droite <input type="radio" name="echo_achille" id="echo_achille_d"/><br>
+                x 2 <input type="radio" name="echo_achille" id="echo_achille_2"/><br>
+              </p>
+            Pied</br> 
+              <p class="ret">
+                Gauche <input type="radio" name="echo_pied" id="echo_pied_g"/><br>
+                Droite <input type="radio" name="echo_pied" id="echo_pied_d"/><br>
+                x 2 <input type="radio" name="echo_pied" id="echo_pied_2"/><br>
+              </p>
         </td>
-      </tr>
     </table>
+</body>
 
 
 <script type="text/javascript">
@@ -59,5 +93,4 @@ function vol()  {
 }
 </script>
 
-</body>
 </html>
